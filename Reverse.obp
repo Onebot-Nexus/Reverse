@@ -1,0 +1,19 @@
+var esrever = require('esrever');
+
+exports.onMessageReceived = (function Version(bot, doc, user, userID, channelID, message, event) {
+    if(message === undefined){
+        return;
+    }
+    if (message.startsWith("*reverse ")) {
+        var string = message.match(/^.{9}(.*)/)[1];
+        var result = esrever.reverse(string);
+        bot.sendMessage({
+            to: doc.logchannel,
+            message: user + " asked to reverse the string `" + string + "` into `" + result + "`."
+        });
+        bot.sendMessage({
+            to: channelID,
+            message: "Here's your reversed message: `" + result + "`."
+        });
+    }
+});
