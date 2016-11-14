@@ -10,7 +10,7 @@ exports.onMessageReceived = (function Version(bot, doc, user, userID, channelID,
         var result = esrever.reverse(string);
         bot.sendMessage({
             to: doc.logchannel,
-            message: user + " asked to reverse the string `" + string + "` into `" + result + "`."
+            message: "<@" + userID + "> asked to reverse the string `" + string + "` into `" + result + "`."
         });
         bot.sendMessage({
             to: channelID,
